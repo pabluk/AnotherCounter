@@ -1,7 +1,7 @@
 MIDlet-1: AnotherCounter, AnotherCounter.png, AnotherCounter
-MIDlet-Description: a digital tally counter
+MIDlet-Description: Another tally counter
 MIDlet-Icon: /icon.png
-MIDlet-Jar-Size: 9403
+MIDlet-Jar-Size: 9404
 MIDlet-Jar-URL: AnotherCounter.jar
 MIDlet-Name: Another Counter
 MIDlet-Vendor: Pablo Seminario

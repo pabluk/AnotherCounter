@@ -1,5 +1,5 @@
 MIDlet-1: AnotherCounter, AnotherCounter.png, AnotherCounter
-MIDlet-Description: a digital tally counter
+MIDlet-Description: Another tally counter
 MIDlet-Icon: /icon.png
 MIDlet-Name: Another Counter
 MIDlet-Vendor: Pablo Seminario
