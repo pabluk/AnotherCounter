@@ -66,8 +66,6 @@ class CanvasCounter extends Canvas implements CommandListener{
     private Image image;
     private TiledLayer tiled;
     private static int value;
-    private static String msgKey;
-    private static String msgAction;
 
 	public CanvasCounter(AnotherCounter midlet){
 		this.midlet = midlet;
@@ -94,22 +92,9 @@ class CanvasCounter extends Canvas implements CommandListener{
 	
 	protected void paint(Graphics g){
         showCounterImg(g);
-        //showKeys(g);
-
 	}
 
-    protected void keyReleased(int keyCode) {
-        if (keyCode > 0) {
-            System.out.println("keyReleased " +((char)keyCode));
-            msgKey = "keyReleased " +((char)keyCode);
-        } else {
-            System.out.println("keyReleased action " +getGameAction(keyCode));
-            msgKey = "keyReleased action " +getGameAction(keyCode);
-        }
-    }
-
 	public void commandAction(Command c, Displayable d){
-        msgAction = c.getLabel();
 		if (c == exit) {
             setCommandListener(null);
 			midlet.exitMIDlet();
@@ -126,14 +111,6 @@ class CanvasCounter extends Canvas implements CommandListener{
         repaint();
 
 	}
-
-    private void showKeys(Graphics g) {
-        g.setColor(255, 255, 255);
-        g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(0);
-        g.drawString(msgKey, 0, 0, g.LEFT | g.TOP);
-        g.drawString(msgAction, 0, 0, g.RIGHT | g.TOP);
-    }
 
     private void showCounterImg(Graphics g) {
         int [] value_array;
