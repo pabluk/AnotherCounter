@@ -38,7 +38,7 @@ public class AnotherCounter extends MIDlet{
 	}
 
 	protected void startApp(){
-		display.setCurrent( canvas );
+		display.setCurrent(canvas);
 	}
 
 	protected void pauseApp(){
@@ -52,7 +52,7 @@ public class AnotherCounter extends MIDlet{
 		destroyApp(true);
 	}
 
-    public void addCounter() {
+    public void incCounter() {
         if (counter <= 9999) {
             counter++;
         } else {
@@ -60,7 +60,7 @@ public class AnotherCounter extends MIDlet{
         }
     }
 
-    public void subCounter() {
+    public void decCounter() {
         if (counter > 0) {
             counter--;
         }
@@ -77,8 +77,8 @@ public class AnotherCounter extends MIDlet{
 }
 
 class CanvasCounter extends Canvas implements CommandListener{
-	private Command add;
-	private Command sub;
+	private Command inc;
+	private Command dec;
 	private Command reset;
 	private Command exit;
 	private AnotherCounter midlet;
@@ -97,12 +97,12 @@ class CanvasCounter extends Canvas implements CommandListener{
 
         tiled.setPosition((getWidth() - (32 * 4))/2, (getHeight() - 32)/2);
 
-		add = new Command("Add", Command.EXIT, 0);
-		sub = new Command("Subtract", Command.SCREEN, 1);
+		inc = new Command("Add", Command.EXIT, 0);
+		dec = new Command("Subtract", Command.SCREEN, 1);
 		reset = new Command("Reset", Command.SCREEN, 1);
 		exit = new Command("Exit", Command.SCREEN, 2);
-		addCommand(add);
-		addCommand(sub);
+		addCommand(inc);
+		addCommand(dec);
 		addCommand(reset);
 		addCommand(exit);
 		setCommandListener(this);
@@ -116,11 +116,11 @@ class CanvasCounter extends Canvas implements CommandListener{
 		if (c == exit) {
             setCommandListener(null);
 			midlet.exitMIDlet();
-        } else if (c == add) {
-            midlet.addCounter();
+        } else if (c == inc) {
+            midlet.incCounter();
             repaint();
-        } else if (c == sub) {
-            midlet.subCounter();
+        } else if (c == dec) {
+            midlet.decCounter();
             repaint();
         } else if (c == reset) {
             midlet.resetCounter();
